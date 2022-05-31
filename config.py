@@ -1,9 +1,9 @@
-from ensurepip import version
+import ensurepip 
 
 version = "1.4"
 
 def intro():
-    msg = "Assistente = versão {} / Developed by: Samuel Oliveira".format(version)
+    msg = "Assistente - versão {} / Developed by: Samuel Oliveira".format(version)
     print("-" * len(msg) + "\n{}\n".format(msg) + "-" * len(msg))
 
 lista_erros = [
@@ -53,7 +53,7 @@ def verifica_nome_exist(nome):
             return "Ola {}, acho que já nos conhecemos!!".format(nome)
         
         
-    nomes_lista = open("dados/nomes.txt", "r")
+    vazio = open("dados/nomes.txt", "r")
     conteudo = vazio.readlines()
     conteudo.append("\n{}".format(nome))
     vazio = open("dados/nomes.txt", "w")
