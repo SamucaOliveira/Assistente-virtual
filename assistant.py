@@ -51,8 +51,14 @@ def assistente():
                     audio = rec.listen(s)
                     entrada = rec.recognize_google(audio, language = "pt-br")
                     print("{}: {}".format(user_name, entrada))
-                
-                    reposta = conversas[entrada]
+                    
+                    #Operações matemáticas
+                    if "Quanto é" in entrada:
+                        
+                            entrada = entrada.replace("Quanto é", "")
+                            reposta = calcula(entrada)
+                    else:
+                            reposta = conversas[entrada]
                 
                     print("Assistente: {}".format(reposta))
                     sai_som("{}".format(reposta))

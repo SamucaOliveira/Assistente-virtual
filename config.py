@@ -1,6 +1,6 @@
 import ensurepip 
 
-version = "1.4"
+version = "1.5"
 
 def intro():
     msg = "Assistente - versão {} / Developed by: Samuel Oliveira".format(version)
@@ -70,3 +70,21 @@ def name_list():
     except FileNotFoundError:
         nomes = open("dados/nomes.txt", "w")
         nomes.close()
+
+def calcula(entrada):
+        if "mais" in entrada or "+" in entrada:
+            entradas_recebidas = entrada.split(" ")
+            resultado = int(entradas_recebidas[1]) + int(entradas_recebidas[3])
+        elif "menos" in entrada or "-" in entrada:
+            entradas_recebidas = entrada.split(" ")
+            resultado = int(entradas_recebidas[1]) - int(entradas_recebidas[3])
+        elif "vezes" in entrada or "x" in entrada:
+            entradas_recebidas = entrada.split(" ")
+            resultado = round(float(entradas_recebidas[1]) * float(entradas_recebidas[3]), 2)
+        elif "dividido" in entrada or "/" in entrada:
+            entradas_recebidas = entrada.split(" ")
+            resultado = round(float(entradas_recebidas[1]) / float(entradas_recebidas[4]), 2)
+        else:
+            resultado = "Operação não encontrada"
+        
+        return resultado
